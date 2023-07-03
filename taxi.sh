@@ -44,7 +44,7 @@ while [ -z "$user" ]
                     then
                     user="korisnik"
                     echo -e "$(clear)\n\n\n\t      ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
-                    echo -e "\n${YELLOW}${BOLD}Dobrodošao, $NAME\n\n\n"
+                    echo -e "\n${YELLOW}${BOLD}Dobrodošli, $NAME\n\n\n"
                     break
                     else
                     echo -e "$(clear)\n${YELLOW}${BOLD}Pogrešan password!${NC}"
@@ -106,11 +106,9 @@ case $user in
 
             echo -e "<${YELLOW}${BOLD}Uređivanje vozila${NC}>\n"
 
-            echo -e "${YELLOW}${BOLD}Unesite ID vozila kojeg uređujete:${NC}"
+            echo -e "${YELLOW}${BOLD}Unesite ID vozila kojeg uređujete(NNN): ${NC}"
             read -e tempID
 
-
-            lineNumber=(sed -n "/${TEMPID}/=" vehicles.txt)
 
 
             echo -ne "${YELLOW}${BOLD}Id (NNN): ${NC}"
@@ -124,11 +122,26 @@ case $user in
             echo -ne "${YELLOW}${BOLD}Trenutni status vozila (SLOBODNO/ZAUZETO/VAN_SLUZBE): ${NC}"
             read -e STATUS
 
-            sed "${lineNumber}c\This is a modified line." exm.txt  
+
+            sed -e "/${tempID}/d" vehicles.txt
+            echo "${ID} ${BRAND} ${MODEL} ${LPNUMBER} ${STATUS}" >> vehicles.txt
+
 
 
             ;;
             3|"izbrisi vozilo")
+            
+
+
+            echo -e "$(clear)\n\n\n\t      ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+
+            echo -e "<${YELLOW}${BOLD}Uređivanje vozila${NC}>\n"
+
+            echo -e "${YELLOW}${BOLD}Unesite ID vozila kojeg uređujete(NNN): ${NC}"
+            read -e tempID
+
+            sed "//d" vehicles.txt
+
             ;;
             4|"provjeri voznje")
             ;;
