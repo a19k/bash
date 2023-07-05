@@ -1,5 +1,6 @@
 #users-->(NAME PASS)
 #vehicles-->(ID BRAND MODEL LPNUMBER STATUS)
+#rides-->(START END USER DRIVER PCOUNT PRICE)
 
 
 choice1=("dodaj vozilo" "uredi vozilo" "izbrisi vozilo" "provjeri voznje" "exit")
@@ -16,7 +17,7 @@ echo "$(clear)"
 
 while [ -z "$user" ]
     do
-    echo -e "\n\n\n\t      ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+    echo -e "\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
     
     echo -ne "${YELLOW}${BOLD}Username : ${NC}"
     read -e NAME
@@ -29,7 +30,7 @@ while [ -z "$user" ]
             then
             user="admin"
             found=true
-            echo -e "$(clear)\n\n\n\t      ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+            echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
             echo -e "\n${YELLOW}${BOLD}Dobrodošao, Administrator\n\n\n"
             else
             echo -e "$(clear)\n${YELLOW}${BOLD}Pogrešan password!${NC}"
@@ -44,7 +45,7 @@ while [ -z "$user" ]
                     then
                     user="korisnik"
                     echo -e "$(clear)\n\n\n\t      ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
-                    echo -e "\n${YELLOW}${BOLD}Dobrodošli, $NAME\n\n\n"
+                    echo -e "\n${YELLOW}${BOLD}Dobrodošao, $NAME\n\n\n"
                     break
                     else
                     echo -e "$(clear)\n${YELLOW}${BOLD}Pogrešan password!${NC}"
@@ -59,57 +60,66 @@ while [ -z "$user" ]
             fi 
         fi
 done
+ 
+
+while true
+do
+    case $user in
+
+        admin)
+            
+            echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
 
 
-case $user in
+            for (( i=0; i<${#choice1[@]}; i++))
+            do
+            echo -e "${YELLOW}$(($i+1))| ${BOLD}${choice1[$i]}\n${NC}"
+            done
 
-    admin)
+            read choice
 
-        for (( i=0; i<${#choice1[@]}; i++))
-        do
-        echo -e "${YELLOW}$(($i+1))| ${BOLD}${choice1[$i]}\n${NC}"
-        done
-
-        read choice
-
-        case $choice in
-            1|"dodaj vozilo")
+            case $choice in
+                1|"dodaj vozilo")
 
 
-            echo -e "$(clear)\n\n\n\t      ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
-
-
-
-            echo -e "<${YELLOW}${BOLD}Dodavanje vozila u Bazu${NC}>\n"
-
-            echo -ne "${YELLOW}${BOLD}Id (NNN): ${NC}"
-            read -e ID
-            echo -ne "${YELLOW}${BOLD}Marka vozila (XX_XX): ${NC}"
-            read -e BRAND
-            echo -ne "${YELLOW}${BOLD}Model vozila (XX_XX): ${NC}"
-            read -e MODEL
-            echo -ne "${YELLOW}${BOLD}Registarska oznaka (TA-NNNNNN): ${NC}"
-            read -e LPNUMBER
-            echo -ne "${YELLOW}${BOLD}Trenutni status vozila (SLOBODNO/ZAUZETO/VAN_SLUZBE): ${NC}"
-            read -e STATUS
-
-            echo "${ID} ${BRAND} ${MODEL} ${LPNUMBER} ${STATUS}" >> vehicles.txt
+                echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
 
 
 
-            ;;
-            2|"uredi vozilo")
+                echo -e "<${YELLOW}${BOLD}Dodavanje vozila u Bazu${NC}>\n"
+
+
+                echo -ne "${YELLOW}${BOLD}Id (NNN): ${NC}"
+                read -e ID
+                echo -ne "${YELLOW}${BOLD}Marka vozila (XX_XX): ${NC}"
+                read -e BRAND
+                echo -ne "${YELLOW}${BOLD}Model vozila (XX_XX): ${NC}"
+                read -e MODEL
+                echo -ne "${YELLOW}${BOLD}Registarska oznaka (TA-NNNNNN): ${NC}"
+                read -e LPNUMBER
+                echo -ne "${YELLOW}${BOLD}Trenutni status vozila (SLOBODNO/ZAUZETO/VAN_SLUZBE): ${NC}"
+                read -e STATUS
+
+                echo "${ID} ${BRAND} ${MODEL} ${LPNUMBER} ${STATUS}" >> vehicles.txt
+
+
+                clear
+                ;;
+                2|"uredi vozilo")
+                
+
+                echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
 
 
 
-            echo -e "$(clear)\n\n\n\t      ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+                echo -e "<${YELLOW}${BOLD}Uređivanje vozila${NC}>\n"
 
-            echo -e "<${YELLOW}${BOLD}Uređivanje vozila${NC}>\n"
-
-            echo -e "${YELLOW}${BOLD}Unesite ID vozila kojeg uređujete(NNN): ${NC}"
+            echo -e "${YELLOW}${BOLD}Unesite ID vozila kojeg uređujete:${NC}"
             read -e tempID
 
 
+            lineNumber=(sed -n "/${TEMPID}/=" vehicles.txt)
+
 
             echo -ne "${YELLOW}${BOLD}Id (NNN): ${NC}"
             read -e ID
@@ -122,26 +132,16 @@ case $user in
             echo -ne "${YELLOW}${BOLD}Trenutni status vozila (SLOBODNO/ZAUZETO/VAN_SLUZBE): ${NC}"
             read -e STATUS
 
+            sed "${lineNumber}c\This is a modified line." exm.txt  
 
-            sed -e "/${tempID}/d" vehicles.txt
-            echo "${ID} ${BRAND} ${MODEL} ${LPNUMBER} ${STATUS}" >> vehicles.txt
-
-
+                if [ "$YN" = "Y" ]
+                then
+                sed -i "/${tempID}/d" vehicles.txt
+                echo "${ID} ${BRAND} ${MODEL} ${LPNUMBER} ${STATUS}" >> vehicles.txt
+                fi
 
             ;;
             3|"izbrisi vozilo")
-            
-
-
-            echo -e "$(clear)\n\n\n\t      ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
-
-            echo -e "<${YELLOW}${BOLD}Uređivanje vozila${NC}>\n"
-
-            echo -e "${YELLOW}${BOLD}Unesite ID vozila kojeg uređujete(NNN): ${NC}"
-            read -e tempID
-
-            sed "//d" vehicles.txt
-
             ;;
             4|"provjeri voznje")
             ;;
@@ -153,47 +153,77 @@ case $user in
             ;;
         esac    
 
-    ;;
+        ;;
 
 
-    korisnik)
+        korisnik)
 
-        for (( i=0; i<${#choice2[@]}; i++))
-        do
-        echo -e "${YELLOW}$(($i+1))| ${BOLD}${choice2[$i]}\n${NC}"
-        done
-
-        read choice
+            echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
 
 
-        case $choice in
-            1|"rezervisi voznju")
-            ;;
-            2|"provjeri voznje")
-            ;;
-            3|"exit")
-            exit
-            ;;
-            *)
-            echo "smol brain"
-            ;;
-        esac
-
-    ;;
+            for (( i=0; i<${#choice2[@]}; i++))
+            do
+            echo -e "${YELLOW}$(($i+1))| ${BOLD}${choice2[$i]}\n${NC}"
+            done
 
 
-    exit)
-
-    exit
-
-    ;;
+            read choice
 
 
-    *)
+            case $choice in
+                1|"rezervisi voznju")
 
-    echo "smol brain"
+                echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
 
-	;;
+                
+                echo -e "<${YELLOW}${BOLD}Kreiranje rezervacije${NC}>\n"
 
-esac
 
+                echo -ne "${YELLOW}${BOLD}Polazište (20 max): ${NC}"
+                read -e START
+                echo -ne "${YELLOW}${BOLD}Odredište (20 max): ${NC}"
+                read -e END
+                echo -ne "${YELLOW}${BOLD}Ime vozača (20 max): ${NC}"
+                read -e DRIVER
+                echo -ne "${YELLOW}${BOLD}Broj putnika : ${NC}"
+                read -e PCOUNT
+                echo -ne "${YELLOW}${BOLD}Cijena (KM): ${NC}"
+                read -e PRICE
+
+                echo "${START} ${END} ${NAME} ${DRIVER} ${PCOUNT} ${PRICE}" >> rides.txt
+
+
+
+                clear
+                ;;
+                2|"provjeri voznje")
+
+                echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+
+                echo -e "${YELLOW}${BOLD}Spisak vaših vožnji:\n\n${NC}"
+
+                sed -n "/${NAME}/p" rides.txt
+
+                echo -e "\n${YELLOW}${BOLD}Unesite bilo šta kada se želite vratiti na meni.${NC}\n"
+                read exitBuffer
+
+
+                clear
+                ;;
+                3|"exit")
+                exit
+                ;;
+                *)
+                echo "smol brain"
+                ;;
+            esac
+
+        ;;
+         *)
+
+        echo "smol brain"
+
+        ;;
+
+    esac
+done
