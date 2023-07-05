@@ -114,27 +114,25 @@ do
 
                 echo -e "<${YELLOW}${BOLD}Uređivanje vozila${NC}>\n"
 
-                echo -e "${YELLOW}${BOLD}Unesite ID vozila kojeg uređujete:${NC}"
-                read -e tempID
-
-                echo -e "\n\n"
-                echo -ne "${YELLOW}${BOLD}Id (NNN): ${NC}"
-                read -e ID
-                echo -ne "${YELLOW}${BOLD}Marka vozila (XX_XX): ${NC}"
-                read -e BRAND
-                echo -ne "${YELLOW}${BOLD}Model vozila (XX_XX): ${NC}"
-                read -e MODEL
-                echo -ne "${YELLOW}${BOLD}Registarska oznaka (TA-NNNNNN): ${NC}"
-                read -e LPNUMBER
-                echo -ne "${YELLOW}${BOLD}Trenutni status vozila (SLOBODNO/ZAUZETO/VAN_SLUZBE): ${NC}"
-                read -e STATUS
+            echo -e "${YELLOW}${BOLD}Unesite ID vozila kojeg uređujete:${NC}"
+            read -e tempID
 
 
-                echo -e "\n\n\n${YELLOW}${BOLD}Vozilo:\n"
-                sed -n "/${tempID}/p" vehicles.txt
+            lineNumber=(sed -n "/${TEMPID}/=" vehicles.txt)
 
-                echo -e "\nJeste li sigurni da želite izmjeniti vozilo?(Y/N)${NC}"
-                read -e YN
+
+            echo -ne "${YELLOW}${BOLD}Id (NNN): ${NC}"
+            read -e ID
+            echo -ne "${YELLOW}${BOLD}Marka vozila (XX_XX): ${NC}"
+            read -e BRAND
+            echo -ne "${YELLOW}${BOLD}Model vozila (XX_XX): ${NC}"
+            read -e MODEL
+            echo -ne "${YELLOW}${BOLD}Registarska oznaka (TA-NNNNNN): ${NC}"
+            read -e LPNUMBER
+            echo -ne "${YELLOW}${BOLD}Trenutni status vozila (SLOBODNO/ZAUZETO/VAN_SLUZBE): ${NC}"
+            read -e STATUS
+
+            sed "${lineNumber}c\This is a modified line." exm.txt  
 
                 if [ "$YN" = "Y" ]
                 then
