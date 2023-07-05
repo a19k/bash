@@ -17,7 +17,7 @@ echo "$(clear)"
 
 while [ -z "$user" ]
     do
-    echo -e "\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+    echo -e "\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
     
     echo -ne "${YELLOW}${BOLD}Username : ${NC}"
     read -e NAME
@@ -30,7 +30,7 @@ while [ -z "$user" ]
             then
             user="admin"
             found=true
-            echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+            echo -e "$(clear)\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
             echo -e "\n${YELLOW}${BOLD}Dobrodošao, Administrator\n\n\n"
             else
             echo -e "$(clear)\n${YELLOW}${BOLD}Pogrešan password!${NC}"
@@ -44,7 +44,7 @@ while [ -z "$user" ]
                 if [ "$PASS" = "$FPASS" ]
                     then
                     user="korisnik"
-                    echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+                    echo -e "$(clear)\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
                     echo -e "\n${YELLOW}${BOLD}Dobrodošao, $NAME\n\n\n"
                     break
                     else
@@ -68,7 +68,7 @@ do
 
         admin)
             
-            echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+            echo -e "$(clear)\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
 
 
             for (( i=0; i<${#choice1[@]}; i++))
@@ -82,7 +82,7 @@ do
                 1|"dodaj vozilo")
 
 
-                echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+                echo -e "$(clear)\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
 
 
 
@@ -108,7 +108,7 @@ do
                 2|"uredi vozilo")
                 
 
-                echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+                echo -e "$(clear)\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
 
 
 
@@ -147,7 +147,7 @@ do
                 3|"izbrisi vozilo")
 
 
-                echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+                echo -e "$(clear)\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
 
 
 
@@ -216,7 +216,7 @@ do
 
         korisnik)
 
-            echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+            echo -e "$(clear)\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
 
 
             for (( i=0; i<${#choice2[@]}; i++))
@@ -231,7 +231,7 @@ do
             case $choice in
                 1|"rezervisi voznju")
 
-                echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+                echo -e "$(clear)\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
 
                 
                 echo -e "<${YELLOW}${BOLD}Kreiranje rezervacije${NC}>\n"
@@ -256,7 +256,7 @@ do
                 ;;
                 2|"provjeri voznje")
 
-                echo -e "$(clear)\n\n\n\t\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+                echo -e "$(clear)\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
 
                 echo -e "${YELLOW}${BOLD}Spisak vaših vožnji:\n\n${NC}"
 
