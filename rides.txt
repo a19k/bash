@@ -1,3 +1,2 @@
-MALA_BRIJESNICA TUZLA anis BABA 4 0
-Tuzla Mala_brijesnica anis BABA 4 0
-MALA_BRIJESNICA PROXIMA_CENTAURI bass REŠKO 1 2.5
+Tuzla Doboj-Istok anis Anis 1 5
+Doboj-Istok Tuzla anis Anis 1 5

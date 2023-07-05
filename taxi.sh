@@ -30,8 +30,6 @@ while [ -z "$user" ]
             then
             user="admin"
             found=true
-            echo -e "$(clear)\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
-            echo -e "\n${YELLOW}${BOLD}Dobrodošao, Administrator\n\n\n"
             else
             echo -e "$(clear)\n${YELLOW}${BOLD}Pogrešan password!${NC}"
             fi
@@ -44,8 +42,6 @@ while [ -z "$user" ]
                 if [ "$PASS" = "$FPASS" ]
                     then
                     user="korisnik"
-                    echo -e "$(clear)\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
-                    echo -e "\n${YELLOW}${BOLD}Dobrodošao, $NAME\n\n\n"
                     break
                     else
                     echo -e "$(clear)\n${YELLOW}${BOLD}Pogrešan password!${NC}"
@@ -60,7 +56,7 @@ while [ -z "$user" ]
             fi 
         fi
 done
- 
+
 
 while true
 do
@@ -69,6 +65,7 @@ do
         admin)
             
             echo -e "$(clear)\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+            echo -e "\n${YELLOW}${BOLD}Dobrodošao, Administrator\n\n\n"
 
 
             for (( i=0; i<${#choice1[@]}; i++))
@@ -176,7 +173,7 @@ do
                 colored=true
 
 
-                echo -e "$(clear)${YELLOW}${BOLD}-------------------------------------------------------------------------------------------------------$NC"
+                echo -e "$(clear)${YELLOW}${BOLD}----------------------------------------------------------------------------------------------$NC"
 
                 while IFS=" " read -r START END NAME DRIVER PCOUNT PRICE
                 do
@@ -194,7 +191,7 @@ do
 
                 done < "rides.txt"
 
-                echo -e "${YELLOW}${BOLD}-------------------------------------------------------------------------------------------------------$NC"
+                echo -e "${YELLOW}${BOLD}----------------------------------------------------------------------------------------------$NC"
 
                 echo -e "\n${YELLOW}${BOLD}Unesite bilo šta kada se želite vratiti na meni.${NC}\n"
                 read exitBuffer
@@ -217,6 +214,7 @@ do
         korisnik)
 
             echo -e "$(clear)\n\n\n\t\t         ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< ${NC}< ${YELLOW}${BOLD}< TAXI SISTEM Simulacija > ${NC}> ${YELLOW}${BOLD}> ${NC}> ${YELLOW}${BOLD}>${NC}\n\n\n"
+            echo -e "\n${YELLOW}${BOLD}Dobrodošao, $NAME\n\n\n"
 
 
             for (( i=0; i<${#choice2[@]}; i++))
@@ -237,15 +235,15 @@ do
                 echo -e "<${YELLOW}${BOLD}Kreiranje rezervacije${NC}>\n"
 
 
-                echo -ne "${YELLOW}${BOLD}Polazište (20 max): ${NC}"
+                echo -ne "${YELLOW}${BOLD}Polazište : ${NC}"
                 read -e START
-                echo -ne "${YELLOW}${BOLD}Odredište (20 max): ${NC}"
+                echo -ne "${YELLOW}${BOLD}Odredište : ${NC}"
                 read -e END
-                echo -ne "${YELLOW}${BOLD}Ime vozača (20 max): ${NC}"
+                echo -ne "${YELLOW}${BOLD}Ime vozača : ${NC}"
                 read -e DRIVER
                 echo -ne "${YELLOW}${BOLD}Broj putnika : ${NC}"
                 read -e PCOUNT
-                echo -ne "${YELLOW}${BOLD}Cijena (KM): ${NC}"
+                echo -ne "${YELLOW}${BOLD}Cijena : ${NC}"
                 read -e PRICE
 
                 echo "${START} ${END} ${NAME} ${DRIVER} ${PCOUNT} ${PRICE}" >> rides.txt
@@ -272,14 +270,14 @@ do
                 exit
                 ;;
                 *)
-                echo "smol brain"
+                clear
                 ;;
             esac
 
         ;;
          *)
 
-        echo "smol brain"
+        echo "$(clear)Ovo se nije trebalo desiti"
 
         ;;
 
